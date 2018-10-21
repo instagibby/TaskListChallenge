@@ -1,0 +1,32 @@
+i {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+.isCompleted {
+  text-decoration: line-through;
+}
+.hidethis {
+  display: none;
+}
+h1 {
+  text-align: center;
+}
+.notVisible {
+  visibility: hidden;
+}
+.visiblilityOn {
+  visibility: visible;
+}
+button > i {
+  border: none;
+}

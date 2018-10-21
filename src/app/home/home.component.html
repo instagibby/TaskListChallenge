@@ -1,0 +1,134 @@
+<thx-header></thx-header>
+
+<div class="container">
+<h1>Enter a Task...</h1>  
+  <!-- <div class="row">
+    <div 
+    class="alert alert-success" role="alert" data-auto-dismiss="2000">
+      Added Successfully!
+    </div>
+    <div 
+      class="alert alert-danger align-items-center" 
+      [ngClass]="{notVisible: alertDanger}"
+      role="alert">
+      Removed Successfully!
+      </div> 
+  </div>-->
+  <form (submit)="addTask($event)" autocomplete="off">
+    <div class="row">
+      <input 
+        [(ngModel)]="title" 
+        name="title" 
+        class="form-control col-md-3 align-self-start" 
+        type="text" 
+        placeholder="*What needs done..?" 
+        required>
+      <input 
+        [(ngModel)]="description" 
+        name="description" 
+        class="form-control col-md-6" 
+        type="text" 
+        placeholder="Description">
+      <input 
+        [(ngModel)]="dueDate" 
+        name="dueDate" 
+        class="form-control col-md-3" 
+        type="date" 
+        placeholder="Due date">
+    </div>
+    <br>
+    <div class="row">
+      <button 
+        type="submit" 
+        class="btn btn-primary" 
+        [disabled]="title===''">
+        Add Task
+      </button>
+    </div>
+  </form>
+  <br>
+  <form>
+    <div *ngFor="let task of tasks; let i=index">
+      <div [ngClass]="{hidethis: task.hidden}">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="row">
+              <div class="col-md-1">
+                <input 
+                  class="paddingRedction"
+                  type="checkbox" 
+                  name="selected" 
+                  [(ngModel)]="task.selected">
+              </div>
+              <div class="col-md-11">
+                  <input 
+                    class="form-control"
+                    [ngClass]="{isCompleted: task.done}"
+                    value="{{task.title}}">
+                </div>  
+            </div>
+          </div>
+          <div class="col-md-4">
+            <input 
+              class="form-control"
+              type="textarea"
+              [ngClass]="{isCompleted: task.done}"
+              value="{{task.description}}">
+          </div>
+          <div class="row">
+              <div class="col-md-6">
+                <input 
+                  class="form-control"
+                  type="text"
+                  [ngClass]="{isCompleted: task.done}"
+                  value="{{task.dueDate}}">
+              </div>
+              <div class="col-md-6 align-right">
+                <button 
+                  class="btn btn-success" 
+                  (click)="setCompleted(task)" 
+                  title="Completed!">
+                  &#10004;
+                </button>
+                <button 
+                  class="btn btn-danger" 
+                  (click)="onDeleteTask(task)" 
+                  title="Delete"> X 
+                </button> 
+                <button 
+                  class="btn btn-primary"
+                  (click)="onUpdateTask(task)"
+                  title="Update">
+                    <i class="fa fa-refresh">
+                    </i>
+                </button>
+              </div>
+          </div>
+        </div>
+        <hr>
+        </div>
+      </div>
+    </form>
+  <div class="row">
+    <div class="col-md-1">
+      <button 
+        class="btn btn-danger" 
+        [hidden]="disableDeleteSelected()"
+        (click)="deleteSelectedTasks()">
+        Delete Selected
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-1">
+      <button 
+        class="btn btn-secondary" 
+        [hidden]="disableDeleteSelected()"
+        (click)="selectAllTasks()">
+        Select All
+      </button>
+    </div>
+  </div>
+</div>
+<hr>
+
