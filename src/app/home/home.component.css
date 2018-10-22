@@ -32,3 +32,6 @@ h1 {
 button > i {
   border: none;
 }
+input.form-control {
+  height: 40px;
+}
