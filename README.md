@@ -1,1 +1,4 @@
 # TaskListChallenge
+This programming challenge was given to me roughly a week before I was scheduled to learn Angular in school, with a deadline of a week from the day I received it. At that point I had no experience with Angular and decided I would try to learn Angular with every waking moment I had outside of work and regular schoolwork. After my week of caffeine-infused sleepless nights I walked away with a better understanding of Angular and this app. I tweaked it to no longer run off the mock REST API which was just a local hosted JSON server.
+
+There is definitely things that could have been done better or different, but I actually got an interview! Unfortunately didn't quite work out as I wasn't where they wanted me but was one hell of a week and still can't believe it worked at the end of the week.
