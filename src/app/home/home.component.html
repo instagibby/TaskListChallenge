@@ -56,16 +56,17 @@
               <div class="col-md-1">
                 <input 
                   class="paddingRedction"
+                  title="Click to Select"
                   type="checkbox" 
                   name="selected" 
                   [(ngModel)]="task.selected">
               </div>
               <div class="col-md-11">
-                  <input 
-                    class="form-control"
-                    [ngClass]="{isCompleted: task.done}"
-                    value="{{task.title}}">
-                </div>  
+                <input 
+                  class="form-control"
+                  [ngClass]="{isCompleted: task.done}"
+                  value="{{task.title}}">
+              </div>  
             </div>
           </div>
           <div class="col-md-4">
@@ -75,15 +76,24 @@
               [ngClass]="{isCompleted: task.done}"
               value="{{task.description}}">
           </div>
-          <div class="row">
-              <div class="col-md-6">
+          <div class="col-md-4">
+            <div class="row">
+              <div class="col-md-8">
                 <input 
-                  class="form-control"
-                  type="text"
-                  [ngClass]="{isCompleted: task.done}"
-                  value="{{task.dueDate}}">
+                [ngClass]="{isCompleted: task.done}"
+                value="{{task.dueDate}}"
+                name="dueDate" 
+                class="form-control" 
+                type="date"
+                placeholder="Due date">
+              <!--<input 
+                class="form-control"
+                type="text"
+                [ngClass]="{isCompleted: task.done}"
+                value="{{task.dueDate}}">
+                -->
               </div>
-              <div class="col-md-6 align-right">
+              <div class="col-md-4">
                 <button 
                   class="btn btn-success" 
                   (click)="setCompleted(task)" 
@@ -95,20 +105,21 @@
                   (click)="onDeleteTask(task)" 
                   title="Delete"> X 
                 </button> 
-                <button 
+                <!--<button 
                   class="btn btn-primary"
                   (click)="onUpdateTask(task)"
                   title="Update">
                     <i class="fa fa-refresh">
                     </i>
-                </button>
+                </button>-->
               </div>
+            </div>
           </div>
         </div>
-        <hr>
-        </div>
       </div>
-    </form>
+      <hr>
+    </div>
+  </form>
   <div class="row">
     <div class="col-md-1">
       <button 
@@ -122,9 +133,10 @@
   <div class="row">
     <div class="col-md-1">
       <button 
+        id="selectAllBtn"
         class="btn btn-secondary" 
         [hidden]="disableDeleteSelected()"
-        (click)="selectAllTasks()">
+        (click)="selectAllTasks($event)">
         Select All
       </button>
     </div>

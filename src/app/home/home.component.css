@@ -14,6 +14,8 @@ i {
 }
 .isCompleted {
   text-decoration: line-through;
+  border-color: green;
+  border-width: 2px;
 }
 .hidethis {
   display: none;

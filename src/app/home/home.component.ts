@@ -1,7 +1,7 @@
 import { Response, Http } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { Task } from './../models/task';
-import { Component, Injectable, OnInit } from "@angular/core";
+import { Component, Injectable, OnInit, ViewChild } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 import 'core-js/es6/reflect';
 import 'core-js/es7/reflect';
@@ -146,9 +146,9 @@ export class HomeComponent implements OnInit{
   }
 
   //sets all tasks with button to selected
-  selectAllTasks() {
+  selectAllTasks(event) {
     for (var i=0; i<this.tasks.length; i++) {
-      this.tasks[i].selected = true;
+      this.tasks[i].selected = !this.tasks[i].selected;
     }
   }
 
